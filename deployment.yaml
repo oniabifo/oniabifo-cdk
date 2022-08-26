@@ -1,0 +1,21 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-demo
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: paymentappstack-ecrrepotest81737458-hahq7drq8rqz
+          image: 129633392107.dkr.ecr.us-east-2.amazonaws.com/paymentappstack-ecrrepotest81737458-hahq7drq8rqz:d4b2dd5d3a2f57bc97b9ebf6d8f43eab3d3a28f8
+          ports:
+            - containerPort: 4444
